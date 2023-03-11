@@ -1,0 +1,37 @@
+{
+  "name": "grpc-node-prisma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-proto": "chmod +x ./proto-gen.sh && ./proto-gen.sh",
+    "db:migrate": "npx prisma migrate dev --name post-entity --create-only --schema ./server/prisma/schema.prisma",
+    "db:generate": "npx prisma generate --schema ./server/prisma/schema.prisma",
+    "db:push": "npx prisma db push --schema ./server/prisma/schema.prisma",
+    "start:server": "ts-node-dev --respawn --transpile-only server/app.ts",
+    "start:client": "ts-node-dev --respawn --transpile-only client/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.12",
+    "@grpc/proto-loader": "^0.7.5",
+    "@prisma/client": "^4.11.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0",
+    "nodemon": "^2.0.21",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4",
+    "morgan": "^1.10.0",
+    "prisma": "^4.11.0",
+    "ts-node-dev": "^2.0.0"
+  }
+}
